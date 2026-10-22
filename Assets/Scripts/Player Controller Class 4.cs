@@ -12,10 +12,12 @@ public class PlayerControllerClass4 : MonoBehaviour
     private Vector2 moveInput;
     private bool isGrounded;
     private Animator animator;
+    private GameUI gameUI;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        gameUI = FindAnyObjectByType<GameUI>();
     }
 
     void Update()
@@ -61,6 +63,20 @@ public class PlayerControllerClass4 : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(movement,Vector3.up);
             rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, 10f * Time.fixedDeltaTime));
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Coin coin = collision.gameObject.GetComponent<Coin>();
+
+            if (coin != null)
+            {
+                gameUI.AddScore(coin.GetScoreValue());
+                Destroy(coin.gameObject);
+            }
         }
     }
 

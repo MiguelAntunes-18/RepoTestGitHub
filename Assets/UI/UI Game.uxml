@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GameUIStyle.uss?fileID=7433441132597879392&amp;guid=937a6699e3ec11d4e981887bf2da077c&amp;type=3#GameUIStyle"/>
+    <ui:VisualElement style="flex-grow: 1; position: absolute; width: 1920px; height: 100px; background-color: rgba(46, 69, 120, 0.518);">
+        <ui:Label text="Label" name="score-text-label" class="label-style"/>
+        <ui:Label text="Label" name="crops-label-text" class="label-style" style="-unity-text-align: upper-left; position: absolute; left: 1069px;"/>
+    </ui:VisualElement>
+</ui:UXML>
