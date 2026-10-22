@@ -39,6 +39,14 @@ public class PlayerControllerClass4 : MonoBehaviour
         }
     }
 
+    public void Attack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
+
     void FixedUpdate()
     {
         Vector3 forward = cameraTransform.forward;
